@@ -1,13 +1,9 @@
-import handGestureFactory from "./src/index.js";
+import { handGestureFactory } from "../../factories/handGestureFactory";
 
 const Home = () => {
-	setTimeout(() => handGestureFactory.initialize(), 2000);
+	setTimeout(() => handGestureFactory.initialize(), 500);
 
-	return (
-		<div>
-			<canvas id="hands"></canvas>
-		</div>
-	);
+	return <div></div>;
 };
 
 export default Home;

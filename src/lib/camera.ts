@@ -1,4 +1,6 @@
 export default class Camera {
+	video;
+
 	constructor() {
 		this.video = document.createElement("video");
 	}

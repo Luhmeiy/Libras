@@ -5,6 +5,7 @@ import { Home } from "./pages";
 function App() {
 	return (
 		<div className="App">
+			<canvas id="hands" />
 			<BrowserRouter>
 				<Routes>
 					<Route path="/" element={<Home />} />

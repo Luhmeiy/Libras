@@ -1,4 +1,5 @@
-import fp from "fingerpose";
+// @ts-ignore
+import * as fp from "fingerpose";
 
 const { GestureDescription, Finger, FingerCurl, FingerDirection } = fp;
 
