@@ -30,6 +30,7 @@ export default class HandGestureService {
 	#gestureStrings;
 	#isFirst = true;
 	#previousGesture = "";
+	#letterContainerEl = document.getElementById("letter-container");
 
 	constructor({
 		fingerpose,
@@ -65,12 +66,19 @@ export default class HandGestureService {
 
 				this.#previousGesture = result.name;
 
-				console.log("detected", this.#gestureStrings[result.name]);
+				// console.log("detected", this.#gestureStrings[result.name]);
+
+				this.#letterContainerEl!.innerText =
+					this.#gestureStrings[result.name];
+
 				return;
 			}
 
 			if (result.name != this.#previousGesture) {
-				console.log("detected", this.#gestureStrings[result.name]);
+				// console.log("detected", this.#gestureStrings[result.name]);
+
+				this.#letterContainerEl!.innerText =
+					this.#gestureStrings[result.name];
 
 				this.#previousGesture = result.name;
 			}
