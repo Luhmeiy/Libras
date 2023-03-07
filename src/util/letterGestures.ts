@@ -1,7 +1,10 @@
-// @ts-ignore
-import * as fp from "fingerpose";
-
-const { GestureDescription, Finger, FingerCurl, FingerDirection } = fp;
+import {
+	GestureDescription,
+	Finger,
+	FingerCurl,
+	FingerDirection,
+	// @ts-ignore
+} from "fingerpose";
 
 const LetterA = new GestureDescription("letter-a"); // A
 const LetterB = new GestureDescription("letter-b"); // B
@@ -112,7 +115,7 @@ for (let finger of [Finger.Ring, Finger.Pinky]) {
 	LetterH.addCurl(finger, FingerCurl.FullCurl, 1.0);
 }
 
-const knownGestures = [
+const letterKnownGestures = [
 	LetterA,
 	LetterB,
 	LetterC,
@@ -123,7 +126,7 @@ const knownGestures = [
 	LetterH,
 ];
 
-const gestureStrings = {
+const letterGestureStrings = {
 	"letter-a": "A",
 	"letter-b": "B",
 	"letter-c": "C",
@@ -134,4 +137,4 @@ const gestureStrings = {
 	"letter-h": "H",
 };
 
-export { knownGestures, gestureStrings };
+export { letterKnownGestures, letterGestureStrings };
