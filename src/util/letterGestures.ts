@@ -19,11 +19,10 @@ const LetterH = new GestureDescription("letter-h"); // H
 // -----------------------------------------------------------------------------
 
 LetterA.addCurl(Finger.Thumb, FingerCurl.NoCurl, 0.9);
-LetterA.addDirection(Finger.Thumb, FingerDirection.DiagonalUpLeft, 0.8);
-LetterA.addDirection(Finger.Thumb, FingerDirection.DiagonalUpRight, 0.8);
 
 for (let finger of [Finger.Index, Finger.Middle, Finger.Ring, Finger.Pinky]) {
 	LetterA.addCurl(finger, FingerCurl.FullCurl, 1.0);
+	LetterA.addDirection(finger, FingerDirection.VerticalUp, 0.8);
 }
 
 // B
@@ -43,12 +42,13 @@ for (let finger of [Finger.Index, Finger.Middle, Finger.Ring, Finger.Pinky]) {
 // -----------------------------------------------------------------------------
 
 LetterC.addCurl(Finger.Thumb, FingerCurl.NoCurl, 1);
-LetterC.addCurl(Finger.Thumb, FingerCurl.HalfCurl, 0.8);
 LetterC.addDirection(Finger.Thumb, FingerDirection.HorizontalLeft, 0.8);
 LetterC.addDirection(Finger.Thumb, FingerDirection.HorizontalRight, 0.8);
 
 for (let finger of [Finger.Index, Finger.Middle, Finger.Ring, Finger.Pinky]) {
 	LetterC.addCurl(finger, FingerCurl.HalfCurl, 0.9);
+	LetterC.addDirection(Finger.Thumb, FingerDirection.HorizontalLeft, 1);
+	LetterC.addDirection(Finger.Thumb, FingerDirection.HorizontalRight, 1);
 }
 
 // D
@@ -69,6 +69,8 @@ for (let finger of [Finger.Middle, Finger.Ring, Finger.Pinky]) {
 
 LetterE.addCurl(Finger.Thumb, FingerCurl.HalfCurl, 1);
 LetterE.addCurl(Finger.Thumb, FingerCurl.FullCurl, 0.8);
+LetterE.addDirection(Finger.Thumb, FingerDirection.DiagonalUpLeft, 0.8);
+LetterE.addDirection(Finger.Thumb, FingerDirection.DiagonalUpRight, 0.8);
 
 for (let finger of [Finger.Index, Finger.Middle, Finger.Ring, Finger.Pinky]) {
 	LetterE.addCurl(finger, FingerCurl.HalfCurl, 1);
@@ -96,8 +98,9 @@ LetterG.addCurl(Finger.Thumb, FingerCurl.NoCurl, 0.9);
 LetterG.addCurl(Finger.Index, FingerCurl.NoCurl, 1);
 LetterG.addDirection(Finger.Index, FingerDirection.VerticalUp, 1);
 
-for (let finger of [Finger.Index, Finger.Middle, Finger.Ring, Finger.Pinky]) {
+for (let finger of [Finger.Middle, Finger.Ring, Finger.Pinky]) {
 	LetterG.addCurl(finger, FingerCurl.FullCurl, 1.0);
+	LetterG.addDirection(finger, FingerDirection.VerticalUp, 0.8);
 }
 
 // H

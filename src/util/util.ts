@@ -1,8 +1,17 @@
-import { letterKnownGestures, letterGestureStrings } from "./letterGestures.js";
 import { handKnownGestures, handGestureStrings } from "./handGestures.js";
+import { letterKnownGestures, letterGestureStrings } from "./letterGestures.js";
+import { numberKnownGestures, numberGestureStrings } from "./numberGestures.js";
 
-const knownGestures = [...letterKnownGestures, ...handKnownGestures];
-const gestureStrings = { ...letterGestureStrings, ...handGestureStrings };
+const knownGestures = [
+	...letterKnownGestures,
+	...handKnownGestures,
+	...numberKnownGestures,
+];
+const gestureStrings = {
+	...letterGestureStrings,
+	...handGestureStrings,
+	...numberGestureStrings,
+};
 
 const fingerLookupIndexes = {
 	thumb: [0, 1, 2, 3, 4],
