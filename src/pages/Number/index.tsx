@@ -4,7 +4,7 @@ import {
 	numberGestureStrings,
 } from "../../util/numberGestures";
 
-const Home = () => {
+const Number = () => {
 	setTimeout(
 		() =>
 			handGestureFactory.initialize({
@@ -24,12 +24,20 @@ const Home = () => {
 			</p>
 
 			<div className="border-2 border-black rounded-lg p-12">
-				<span className="text-8xl font-bold" id="letter-container">
+				<span
+					className="text-8xl font-bold"
+					id="first-number-container"
+				>
 					*
 				</span>
+
+				<span
+					className="text-8xl font-bold"
+					id="second-number-container"
+				></span>
 			</div>
 		</div>
 	);
 };
 
-export default Home;
+export default Number;

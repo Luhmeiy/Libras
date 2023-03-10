@@ -10,10 +10,14 @@ interface KeyPoints3DProps {
 
 interface PredictionsProps {
 	keypoints3D: KeyPoints3DProps;
+	handedness: string;
 }
 
 type IterableKeypointProps = PredictionsProps & {
-	[Symbol.iterator](): Iterator<{ keypoints3D: KeyPoints3DProps[] }>;
+	[Symbol.iterator](): Iterator<{
+		keypoints3D: KeyPoints3DProps[];
+		handedness: string;
+	}>;
 };
 
 interface HandGestureServiceProps {
@@ -30,7 +34,10 @@ export default class HandGestureService {
 	#gestureStrings;
 	#isFirst = true;
 	#previousGesture = "";
-	#letterContainerEl = document.getElementById("letter-container");
+	#containerEl =
+		document.getElementById("letter-container") ||
+		document.getElementById("first-number-container");
+	#secondContainerEl = document.getElementById("second-number-container");
 
 	constructor({
 		fingerpose,
@@ -48,7 +55,32 @@ export default class HandGestureService {
 			9
 		);
 
-		return predictions.gestures;
+		return predictions;
+	}
+
+	async #addToContainer(
+		result: { name: string },
+		container: HTMLSpanElement
+	) {
+		if (this.#isFirst) {
+			this.#isFirst = false;
+
+			this.#previousGesture = result.name;
+
+			// console.log("detected", this.#gestureStrings[result.name]);
+
+			container.innerText = this.#gestureStrings[result.name];
+
+			return;
+		}
+
+		if (result.name != this.#previousGesture) {
+			// console.log("detected", this.#gestureStrings[result.name]);
+
+			container.innerText = this.#gestureStrings[result.name];
+
+			this.#previousGesture = result.name;
+		}
 	}
 
 	async *detectGestures(predictions: IterableKeypointProps) {
@@ -57,30 +89,16 @@ export default class HandGestureService {
 
 			const gestures = await this.estimate(hand.keypoints3D);
 
-			if (!gestures.length) continue;
+			if (!gestures.gestures.length) continue;
 
-			const result = gestures.reduce((previous: any, current: any) => {});
+			const result: { name: string } = gestures.gestures.reduce(
+				(previous: any, current: any) => {}
+			);
 
-			if (this.#isFirst) {
-				this.#isFirst = false;
-
-				this.#previousGesture = result.name;
-
-				// console.log("detected", this.#gestureStrings[result.name]);
-
-				this.#letterContainerEl!.innerText =
-					this.#gestureStrings[result.name];
-
-				return;
-			}
-
-			if (result.name != this.#previousGesture) {
-				// console.log("detected", this.#gestureStrings[result.name]);
-
-				this.#letterContainerEl!.innerText =
-					this.#gestureStrings[result.name];
-
-				this.#previousGesture = result.name;
+			if (hand.handedness === "Left") {
+				this.#addToContainer(result, this.#containerEl!);
+			} else if (hand.handedness === "Right") {
+				this.#addToContainer(result, this.#secondContainerEl!);
 			}
 		}
 	}
