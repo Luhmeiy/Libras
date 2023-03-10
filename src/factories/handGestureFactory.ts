@@ -7,17 +7,23 @@ import * as fp from "fingerpose";
 import HandGestureController from "../controllers/handGestureController";
 import HandGestureService from "../services/handGestureService";
 import HandGestureView from "../views/handGestureView";
-import {
-	fingerLookupIndexes,
-	gestureStrings,
-	knownGestures,
-} from "../util/util.js";
+import { fingerLookupIndexes } from "../util/util";
 
 import Camera from "../lib/camera";
 const camera = await Camera.init();
 
+interface HandGestureFactoryProps {
+	knownGestures: any[];
+	gestureStrings: {
+		[index: string]: string;
+	};
+}
+
 export const handGestureFactory = {
-	async initialize() {
+	async initialize({
+		gestureStrings,
+		knownGestures,
+	}: HandGestureFactoryProps) {
 		return HandGestureController.initialize({
 			camera,
 			view: new HandGestureView({
