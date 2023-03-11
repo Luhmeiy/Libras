@@ -7,7 +7,7 @@ import * as fp from "fingerpose";
 import HandGestureController from "../controllers/handGestureController";
 import HandGestureService from "../services/handGestureService";
 import HandGestureView from "../views/handGestureView";
-import { fingerLookupIndexes } from "../util/util";
+import { fingerLookupIndexes } from "../util/fingerLookupIndexes";
 
 import Camera from "../lib/camera";
 const camera = await Camera.init();

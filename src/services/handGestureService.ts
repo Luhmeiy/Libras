@@ -95,10 +95,14 @@ export default class HandGestureService {
 				(previous: any, current: any) => {}
 			);
 
-			if (hand.handedness === "Left") {
+			if (!Number.isNaN(Number(result.name))) {
+				if (hand.handedness === "Left") {
+					this.#addToContainer(result, this.#containerEl!);
+				} else if (hand.handedness === "Right") {
+					this.#addToContainer(result, this.#secondContainerEl!);
+				}
+			} else {
 				this.#addToContainer(result, this.#containerEl!);
-			} else if (hand.handedness === "Right") {
-				this.#addToContainer(result, this.#secondContainerEl!);
 			}
 		}
 	}

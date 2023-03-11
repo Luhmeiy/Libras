@@ -23,6 +23,15 @@ const Navbar = () => {
 				>
 					Números
 				</NavLink>
+
+				<NavLink
+					to="/word"
+					className={({ isActive }: { isActive: boolean }) =>
+						isActive ? "font-bold" : "" + "hover:font-semibold"
+					}
+				>
+					Palavras/Frases
+				</NavLink>
 			</div>
 		</div>
 	);

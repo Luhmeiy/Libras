@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import { Home, Number } from "./pages";
+import { Home, Number, Word } from "./pages";
 
 // styles / SCSS
 import "./styles/global.scss";
@@ -18,6 +18,7 @@ function App() {
 				<Routes>
 					<Route path="/" element={<Home />} />
 					<Route path="/number" element={<Number />} />
+					<Route path="/word" element={<Word />} />
 				</Routes>
 			</BrowserRouter>
 		</div>

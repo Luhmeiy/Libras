@@ -1,15 +1,15 @@
 import { handGestureFactory } from "../../factories/handGestureFactory";
 import {
-	letterKnownGestures,
-	letterGestureStrings,
-} from "../../util/letterGestures.js";
+	handKnownGestures,
+	handGestureStrings,
+} from "../../util/handGestures.js";
 
-const Home = () => {
+const Word = () => {
 	setTimeout(
 		() =>
 			handGestureFactory.initialize({
-				knownGestures: letterKnownGestures,
-				gestureStrings: letterGestureStrings,
+				gestureStrings: handGestureStrings,
+				knownGestures: handKnownGestures,
 			}),
 		500
 	);
@@ -17,10 +17,10 @@ const Home = () => {
 	return (
 		<div className="w-screen h-screen flex flex-col justify-center items-center">
 			<h1 className="text-4xl font-bold mb-2">
-				Conversor de Libras para Letras
+				Conversor de Libras para Palavras/Frases
 			</h1>
 			<p className="text-gray-500 text-lg mb-12">
-				Faça um gesto e o programa reconhecerá qual letra é!
+				Faça um gesto e o programa reconhecerá qual palavra/frase é!
 			</p>
 
 			<div className="border-2 border-black rounded-lg p-12">
@@ -32,4 +32,4 @@ const Home = () => {
 	);
 };
 
-export default Home;
+export default Word;
