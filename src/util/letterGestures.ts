@@ -14,6 +14,9 @@ const LetterE = new GestureDescription("letter-e"); // E
 const LetterF = new GestureDescription("letter-f"); // F
 const LetterG = new GestureDescription("letter-g"); // G
 const LetterH = new GestureDescription("letter-h"); // H
+const LetterI = new GestureDescription("letter-i"); // I
+const LetterJ = new GestureDescription("letter-j"); // J
+const LetterK = new GestureDescription("letter-k"); // K
 
 // A
 // -----------------------------------------------------------------------------
@@ -118,6 +121,48 @@ for (let finger of [Finger.Ring, Finger.Pinky]) {
 	LetterH.addCurl(finger, FingerCurl.FullCurl, 1.0);
 }
 
+// I
+// -----------------------------------------------------------------------------
+
+LetterI.addCurl(Finger.Pinky, FingerCurl.NoCurl, 1);
+LetterI.addDirection(Finger.Pinky, FingerDirection.VerticalUp, 1);
+
+LetterJ.addCurl(Finger.Thumb, FingerCurl.NoCurl, 0.9);
+
+for (let finger of [Finger.Index, Finger.Middle, Finger.Ring]) {
+	LetterI.addCurl(finger, FingerCurl.FullCurl, 0.9);
+}
+
+// J
+// -----------------------------------------------------------------------------
+// Precisa ser atualizado
+
+LetterJ.addCurl(Finger.Pinky, FingerCurl.NoCurl, 1);
+LetterJ.addDirection(Finger.Pinky, FingerDirection.DiagonalUpLeft, 1);
+LetterJ.addDirection(Finger.Pinky, FingerDirection.DiagonalUpRight, 1);
+
+LetterJ.addCurl(Finger.Thumb, FingerCurl.NoCurl, 0.9);
+
+for (let finger of [Finger.Index, Finger.Middle, Finger.Ring]) {
+	LetterJ.addCurl(finger, FingerCurl.FullCurl, 0.9);
+}
+
+// K
+// -----------------------------------------------------------------------------
+// Precisa ser atualizado
+
+for (let finger of [Finger.Thumb, Finger.Index, Finger.Middle]) {
+	LetterK.addCurl(finger, FingerCurl.NoCurl, 1.0);
+	LetterK.addDirection(finger, FingerDirection.HorizontalLeft, 0.9);
+	LetterK.addDirection(finger, FingerDirection.HorizontalRight, 0.9);
+	LetterK.addDirection(finger, FingerDirection.DiagonalDownLeft, 0.9);
+	LetterK.addDirection(finger, FingerDirection.DiagonalDownRight, 0.9);
+}
+
+for (let finger of [Finger.Ring, Finger.Pinky]) {
+	LetterK.addCurl(finger, FingerCurl.FullCurl, 1.0);
+}
+
 const letterKnownGestures = [
 	LetterA,
 	LetterB,
@@ -127,6 +172,9 @@ const letterKnownGestures = [
 	LetterF,
 	LetterG,
 	LetterH,
+	LetterI,
+	LetterJ,
+	LetterK,
 ];
 
 const letterGestureStrings = {
@@ -138,6 +186,9 @@ const letterGestureStrings = {
 	"letter-f": "F",
 	"letter-g": "G",
 	"letter-h": "H",
+	"letter-i": "I",
+	"letter-j": "J",
+	"letter-k": "K",
 };
 
 export { letterKnownGestures, letterGestureStrings };
