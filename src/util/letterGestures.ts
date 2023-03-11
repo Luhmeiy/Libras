@@ -17,6 +17,9 @@ const LetterH = new GestureDescription("letter-h"); // H
 const LetterI = new GestureDescription("letter-i"); // I
 const LetterJ = new GestureDescription("letter-j"); // J
 const LetterK = new GestureDescription("letter-k"); // K
+const LetterL = new GestureDescription("letter-l"); // L
+const LetterM = new GestureDescription("letter-m"); // M
+const LetterN = new GestureDescription("letter-n"); // N
 
 // A
 // -----------------------------------------------------------------------------
@@ -97,6 +100,7 @@ for (let finger of [Finger.Middle, Finger.Ring, Finger.Pinky]) {
 // -----------------------------------------------------------------------------
 
 LetterG.addCurl(Finger.Thumb, FingerCurl.NoCurl, 0.9);
+LetterG.addDirection(Finger.Thumb, FingerDirection.VerticalUp, 0.9);
 
 LetterG.addCurl(Finger.Index, FingerCurl.NoCurl, 1);
 LetterG.addDirection(Finger.Index, FingerDirection.VerticalUp, 1);
@@ -163,6 +167,55 @@ for (let finger of [Finger.Ring, Finger.Pinky]) {
 	LetterK.addCurl(finger, FingerCurl.FullCurl, 1.0);
 }
 
+// L
+// -----------------------------------------------------------------------------
+
+LetterL.addCurl(Finger.Thumb, FingerCurl.NoCurl, 0.9);
+LetterL.addDirection(Finger.Thumb, FingerDirection.HorizontalLeft, 1);
+LetterL.addDirection(Finger.Thumb, FingerDirection.HorizontalRight, 1);
+
+LetterL.addCurl(Finger.Index, FingerCurl.NoCurl, 1);
+LetterL.addDirection(Finger.Index, FingerDirection.VerticalUp, 1);
+
+for (let finger of [Finger.Middle, Finger.Ring, Finger.Pinky]) {
+	LetterL.addCurl(finger, FingerCurl.FullCurl, 1.0);
+	LetterL.addDirection(finger, FingerDirection.VerticalUp, 0.8);
+}
+
+// M
+// -----------------------------------------------------------------------------
+
+LetterM.addCurl(Finger.Thumb, FingerCurl.NoCurl, 1);
+LetterM.addCurl(Finger.Thumb, FingerCurl.HalfCurl, 0.6);
+
+LetterM.addCurl(Finger.Pinky, FingerCurl.FullCurl, 1);
+LetterM.addCurl(Finger.Pinky, FingerCurl.HalfCurl, 0.8);
+
+for (let finger of [Finger.Index, Finger.Middle, Finger.Ring]) {
+	LetterM.addCurl(finger, FingerCurl.NoCurl, 1);
+	LetterM.addDirection(finger, FingerDirection.VerticalDown, 1);
+	LetterM.addDirection(finger, FingerDirection.DiagonalDownLeft, 0.9);
+	LetterM.addDirection(finger, FingerDirection.DiagonalDownRight, 0.9);
+}
+
+// N
+// -----------------------------------------------------------------------------
+
+LetterN.addCurl(Finger.Thumb, FingerCurl.NoCurl, 1);
+LetterN.addCurl(Finger.Thumb, FingerCurl.HalfCurl, 0.6);
+
+for (let finger of [Finger.Index, Finger.Middle]) {
+	LetterN.addCurl(finger, FingerCurl.NoCurl, 1);
+	LetterN.addDirection(finger, FingerDirection.VerticalDown, 1);
+	LetterN.addDirection(finger, FingerDirection.DiagonalDownLeft, 0.9);
+	LetterN.addDirection(finger, FingerDirection.DiagonalDownRight, 0.9);
+}
+
+for (let finger of [Finger.Ring, Finger.Pinky]) {
+	LetterN.addCurl(finger, FingerCurl.FullCurl, 1);
+	LetterN.addCurl(finger, FingerCurl.HalfCurl, 0.8);
+}
+
 const letterKnownGestures = [
 	LetterA,
 	LetterB,
@@ -175,6 +228,9 @@ const letterKnownGestures = [
 	LetterI,
 	LetterJ,
 	LetterK,
+	LetterL,
+	LetterM,
+	LetterN,
 ];
 
 const letterGestureStrings = {
@@ -189,6 +245,9 @@ const letterGestureStrings = {
 	"letter-i": "I",
 	"letter-j": "J",
 	"letter-k": "K",
+	"letter-l": "L",
+	"letter-m": "M",
+	"letter-n": "N",
 };
 
 export { letterKnownGestures, letterGestureStrings };
