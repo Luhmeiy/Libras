@@ -23,6 +23,9 @@ const letterN = new GestureDescription("letter-n"); // N
 const letterO = new GestureDescription("letter-o"); // O
 const letterP = new GestureDescription("letter-p"); // P
 const letterQ = new GestureDescription("letter-q"); // Q
+const letterR = new GestureDescription("letter-r"); // R
+const letterS = new GestureDescription("letter-s"); // S
+const letterT = new GestureDescription("letter-t"); // T
 
 // A
 // -----------------------------------------------------------------------------
@@ -88,7 +91,8 @@ for (let finger of [Finger.Index, Finger.Middle, Finger.Ring, Finger.Pinky]) {
 
 letterF.addCurl(Finger.Thumb, FingerCurl.NoCurl, 1);
 letterF.addCurl(Finger.Thumb, FingerCurl.HalfCurl, 0.5);
-letterF.addDirection(Finger.Thumb, FingerDirection.VerticalUp, 1);
+letterF.addDirection(Finger.Thumb, FingerDirection.DiagonalUpLeft, 1);
+letterF.addDirection(Finger.Thumb, FingerDirection.DiagonalUpRight, 1);
 
 letterF.addCurl(Finger.Index, FingerCurl.HalfCurl, 0.9);
 
@@ -115,9 +119,11 @@ for (let finger of [Finger.Middle, Finger.Ring, Finger.Pinky]) {
 // -----------------------------------------------------------------------------
 // Precisa ser atualizado
 
-for (let finger of [Finger.Thumb, Finger.Index, Finger.Middle]) {
+letterH.addCurl(Finger.Index, FingerCurl.NoCurl, 1.0);
+letterH.addDirection(Finger.Index, FingerDirection.VerticalUp, 0.9);
+
+for (let finger of [Finger.Thumb, Finger.Middle]) {
 	letterH.addCurl(finger, FingerCurl.NoCurl, 1.0);
-	letterH.addDirection(finger, FingerDirection.VerticalUp, 0.9);
 	letterH.addDirection(finger, FingerDirection.DiagonalUpLeft, 0.9);
 	letterH.addDirection(finger, FingerDirection.DiagonalUpRight, 0.9);
 }
@@ -261,6 +267,52 @@ for (let finger of [Finger.Middle, Finger.Ring, Finger.Pinky]) {
 	letterQ.addCurl(finger, FingerCurl.HalfCurl, 0.8);
 }
 
+// R
+// -----------------------------------------------------------------------------
+
+letterR.addCurl(Finger.Middle, FingerCurl.NoCurl, 1.0);
+letterR.addDirection(Finger.Middle, FingerDirection.VerticalUp, 0.9);
+
+for (let finger of [Finger.Thumb, Finger.Index]) {
+	letterR.addCurl(finger, FingerCurl.NoCurl, 1.0);
+	letterR.addDirection(finger, FingerDirection.VerticalUp, 0.9);
+	letterR.addDirection(finger, FingerDirection.DiagonalUpLeft, 0.9);
+	letterR.addDirection(finger, FingerDirection.DiagonalUpRight, 0.9);
+}
+
+for (let finger of [Finger.Ring, Finger.Pinky]) {
+	letterR.addCurl(finger, FingerCurl.FullCurl, 1.0);
+}
+
+// S
+// -----------------------------------------------------------------------------
+
+letterS.addCurl(Finger.Thumb, FingerCurl.HalfCurl, 1);
+letterS.addCurl(Finger.Thumb, FingerCurl.FullCurl, 0.8);
+letterS.addDirection(Finger.Thumb, FingerDirection.HorizontalLeft, 0.8);
+letterS.addDirection(Finger.Thumb, FingerDirection.HorizontalRight, 0.8);
+letterS.addDirection(Finger.Thumb, FingerDirection.DiagonalUpLeft, 0.8);
+letterS.addDirection(Finger.Thumb, FingerDirection.DiagonalUpRight, 0.8);
+
+for (let finger of [Finger.Index, Finger.Middle, Finger.Ring, Finger.Pinky]) {
+	letterS.addCurl(finger, FingerCurl.FullCurl, 1);
+}
+
+// T
+// -----------------------------------------------------------------------------
+// Precisa ser atualizado
+
+letterT.addCurl(Finger.Thumb, FingerCurl.NoCurl, 1);
+letterT.addCurl(Finger.Thumb, FingerCurl.HalfCurl, 0.5);
+letterT.addDirection(Finger.Thumb, FingerDirection.VerticalUp, 1);
+
+letterT.addCurl(Finger.Index, FingerCurl.HalfCurl, 0.9);
+
+for (let finger of [Finger.Middle, Finger.Ring, Finger.Pinky]) {
+	letterT.addCurl(finger, FingerCurl.NoCurl, 1);
+	letterT.addDirection(finger, FingerDirection.VerticalUp, 1);
+}
+
 const letterKnownGestures = [
 	letterA,
 	letterB,
@@ -279,6 +331,9 @@ const letterKnownGestures = [
 	letterO,
 	letterP,
 	letterQ,
+	letterR,
+	letterS,
+	letterT,
 ];
 
 const letterGestureStrings = {
@@ -299,6 +354,9 @@ const letterGestureStrings = {
 	"letter-o": "O",
 	"letter-p": "P",
 	"letter-q": "Q",
+	"letter-r": "R",
+	"letter-s": "S",
+	"letter-t": "T",
 };
 
 export { letterKnownGestures, letterGestureStrings };
