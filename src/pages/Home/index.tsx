@@ -30,9 +30,9 @@ const Home = () => {
 			</div>
 
 			<span className="text-gray-500 w-96 text-md">
-				<b>*</b> Ainda não há suporte para movimento. Então, as letras
-				h, j, k, x e z não foram adicionadas ou foram adicionadas apenas
-				de forma estática.
+				<b>*</b> Ainda não há suporte para movimento. Sendo assim, as
+				letras h, j, k, x e z não foram adicionadas ou foram adicionadas
+				apenas de forma estática.
 			</span>
 		</div>
 	);

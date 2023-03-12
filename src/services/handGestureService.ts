@@ -1,6 +1,7 @@
 import * as handPoseDetection from "@tensorflow-models/hand-pose-detection";
 import { HandDetector } from "@tensorflow-models/hand-pose-detection";
 import { PixelInput } from "@tensorflow-models/hand-pose-detection/dist/shared/calculators/interfaces/common_interfaces";
+import * as _ from "lodash";
 
 interface KeyPoints3DProps {
 	x: number;
@@ -55,7 +56,7 @@ export default class HandGestureService {
 			9
 		);
 
-		return predictions;
+		return predictions.gestures;
 	}
 
 	async #addToContainer(
@@ -89,11 +90,17 @@ export default class HandGestureService {
 
 			const gestures = await this.estimate(hand.keypoints3D);
 
-			if (!gestures.gestures.length) continue;
+			if (!gestures.length) continue;
 
-			const result: { name: string } = gestures.gestures.reduce(
-				(previous: any, current: any) => {}
-			);
+			const scoresArray = [];
+
+			for (const gesture of gestures) {
+				scoresArray.push(gesture.score);
+			}
+
+			const result: { name: string } = [
+				gestures[scoresArray.indexOf(_.max(scoresArray))],
+			].reduce((previous: any, current: any) => {});
 
 			if (!Number.isNaN(Number(result.name))) {
 				if (hand.handedness === "Left") {
