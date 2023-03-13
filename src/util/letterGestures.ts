@@ -26,6 +26,9 @@ const letterQ = new GestureDescription("letter-q"); // Q
 const letterR = new GestureDescription("letter-r"); // R
 const letterS = new GestureDescription("letter-s"); // S
 const letterT = new GestureDescription("letter-t"); // T
+const letterU = new GestureDescription("letter-u"); // U
+const letterV = new GestureDescription("letter-v"); // V
+const letterW = new GestureDescription("letter-w"); // W
 
 // A
 // -----------------------------------------------------------------------------
@@ -270,14 +273,13 @@ for (let finger of [Finger.Middle, Finger.Ring, Finger.Pinky]) {
 // R
 // -----------------------------------------------------------------------------
 
-letterR.addCurl(Finger.Middle, FingerCurl.NoCurl, 1.0);
-letterR.addDirection(Finger.Middle, FingerDirection.VerticalUp, 0.9);
+letterR.addCurl(Finger.Index, FingerCurl.NoCurl, 1.0);
+letterR.addDirection(Finger.Index, FingerDirection.DiagonalUpLeft, 0.9);
+letterR.addDirection(Finger.Index, FingerDirection.DiagonalUpRight, 0.9);
 
-for (let finger of [Finger.Thumb, Finger.Index]) {
+for (let finger of [Finger.Thumb, Finger.Middle]) {
 	letterR.addCurl(finger, FingerCurl.NoCurl, 1.0);
 	letterR.addDirection(finger, FingerDirection.VerticalUp, 0.9);
-	letterR.addDirection(finger, FingerDirection.DiagonalUpLeft, 0.9);
-	letterR.addDirection(finger, FingerDirection.DiagonalUpRight, 0.9);
 }
 
 for (let finger of [Finger.Ring, Finger.Pinky]) {
@@ -313,6 +315,59 @@ for (let finger of [Finger.Middle, Finger.Ring, Finger.Pinky]) {
 	letterT.addDirection(finger, FingerDirection.VerticalUp, 1);
 }
 
+// U
+// -----------------------------------------------------------------------------
+
+letterU.addCurl(Finger.Thumb, FingerCurl.NoCurl, 1);
+letterU.addCurl(Finger.Thumb, FingerCurl.HalfCurl, 0.6);
+letterU.addDirection(Finger.Thumb, FingerDirection.DiagonalUpLeft, 0.9);
+letterU.addDirection(Finger.Thumb, FingerDirection.DiagonalUpRight, 0.9);
+
+for (let finger of [Finger.Index, Finger.Middle]) {
+	letterU.addCurl(finger, FingerCurl.NoCurl, 1);
+	letterU.addDirection(finger, FingerDirection.VerticalUp, 1);
+}
+
+for (let finger of [Finger.Ring, Finger.Pinky]) {
+	letterU.addCurl(finger, FingerCurl.FullCurl, 1);
+	letterU.addCurl(finger, FingerCurl.HalfCurl, 0.8);
+}
+
+// V
+// -----------------------------------------------------------------------------
+
+letterV.addCurl(Finger.Thumb, FingerCurl.NoCurl, 1);
+letterV.addCurl(Finger.Thumb, FingerCurl.HalfCurl, 0.6);
+letterV.addDirection(Finger.Thumb, FingerDirection.DiagonalUpLeft, 0.9);
+letterV.addDirection(Finger.Thumb, FingerDirection.DiagonalUpRight, 0.9);
+
+for (let finger of [Finger.Index, Finger.Middle]) {
+	letterV.addCurl(finger, FingerCurl.NoCurl, 1);
+	letterV.addDirection(finger, FingerDirection.DiagonalUpLeft, 0.9);
+	letterV.addDirection(finger, FingerDirection.DiagonalUpRight, 0.9);
+}
+
+for (let finger of [Finger.Ring, Finger.Pinky]) {
+	letterV.addCurl(finger, FingerCurl.FullCurl, 1);
+	letterV.addCurl(finger, FingerCurl.HalfCurl, 0.8);
+}
+
+// W
+// -----------------------------------------------------------------------------
+
+letterW.addCurl(Finger.Thumb, FingerCurl.NoCurl, 1);
+letterW.addCurl(Finger.Thumb, FingerCurl.HalfCurl, 0.6);
+
+letterW.addCurl(Finger.Pinky, FingerCurl.FullCurl, 1);
+letterW.addCurl(Finger.Pinky, FingerCurl.HalfCurl, 0.8);
+
+for (let finger of [Finger.Index, Finger.Middle, Finger.Ring]) {
+	letterW.addCurl(finger, FingerCurl.NoCurl, 1);
+	letterW.addDirection(finger, FingerDirection.VerticalUp, 1);
+	letterW.addDirection(finger, FingerDirection.DiagonalUpLeft, 0.9);
+	letterW.addDirection(finger, FingerDirection.DiagonalUpRight, 0.9);
+}
+
 const letterKnownGestures = [
 	letterA,
 	letterB,
@@ -334,6 +389,9 @@ const letterKnownGestures = [
 	letterR,
 	letterS,
 	letterT,
+	letterU,
+	letterV,
+	letterW,
 ];
 
 const letterGestureStrings = {
@@ -357,6 +415,9 @@ const letterGestureStrings = {
 	"letter-r": "R",
 	"letter-s": "S",
 	"letter-t": "T",
+	"letter-u": "U",
+	"letter-v": "V",
+	"letter-w": "W",
 };
 
 export { letterKnownGestures, letterGestureStrings };
