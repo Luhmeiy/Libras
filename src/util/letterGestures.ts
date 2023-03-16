@@ -31,7 +31,6 @@ const letterV = new GestureDescription("letter-v"); // V
 const letterW = new GestureDescription("letter-w"); // W
 const letterX = new GestureDescription("letter-x"); // X
 const letterY = new GestureDescription("letter-y"); // Y
-const letterZ = new GestureDescription("letter-z"); // Z
 
 // A
 // -----------------------------------------------------------------------------
@@ -426,7 +425,6 @@ const letterKnownGestures = [
 	letterW,
 	letterX,
 	letterY,
-	letterZ,
 ];
 
 const letterGestureStrings = {
@@ -455,7 +453,6 @@ const letterGestureStrings = {
 	"letter-w": "W",
 	"letter-x": "X",
 	"letter-y": "Y",
-	"letter-z": "Z",
 };
 
 export { letterKnownGestures, letterGestureStrings };

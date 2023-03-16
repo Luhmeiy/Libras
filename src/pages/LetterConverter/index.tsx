@@ -4,12 +4,13 @@ import {
 	letterGestureStrings,
 } from "../../util/letterGestures.js";
 
-const Home = () => {
+const LetterConverter = () => {
 	setTimeout(
 		() =>
 			handGestureFactory.initialize({
 				knownGestures: letterKnownGestures,
 				gestureStrings: letterGestureStrings,
+				mode: "converter",
 			}),
 		500
 	);
@@ -38,4 +39,4 @@ const Home = () => {
 	);
 };
 
-export default Home;
+export default LetterConverter;

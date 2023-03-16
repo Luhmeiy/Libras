@@ -17,12 +17,14 @@ interface HandGestureFactoryProps {
 	gestureStrings: {
 		[index: string]: string;
 	};
+	mode: string;
 }
 
 export const handGestureFactory = {
 	async initialize({
 		gestureStrings,
 		knownGestures,
+		mode,
 	}: HandGestureFactoryProps) {
 		return HandGestureController.initialize({
 			camera,
@@ -33,6 +35,7 @@ export const handGestureFactory = {
 				gestureStrings,
 				knownGestures,
 				fingerpose: fp,
+				mode,
 			}),
 		});
 	},

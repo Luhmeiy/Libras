@@ -27,14 +27,19 @@ interface HandGestureServiceProps {
 	gestureStrings: {
 		[index: string]: string;
 	};
+	mode: string;
 }
 
 export default class HandGestureService {
 	#gestureEstimator;
 	#detector: HandDetector | null = null;
 	#gestureStrings;
+	#mode;
 	#isFirst = true;
 	#previousGesture = "";
+	#randomItem = "";
+	#winCounter = 0;
+	#loseCounter = 0;
 	#containerEl =
 		document.getElementById("letter-container") ||
 		document.getElementById("first-number-container");
@@ -44,9 +49,11 @@ export default class HandGestureService {
 		fingerpose,
 		knownGestures,
 		gestureStrings,
+		mode,
 	}: HandGestureServiceProps) {
 		this.#gestureEstimator = new fingerpose.GestureEstimator(knownGestures);
 		this.#gestureStrings = gestureStrings;
+		this.#mode = mode;
 	}
 
 	async estimate(keypoints3D: KeyPoints3DProps[]) {
@@ -102,6 +109,44 @@ export default class HandGestureService {
 				gestures[scoresArray.indexOf(_.max(scoresArray))],
 			].reduce((previous: any, current: any) => {});
 
+			if (this.#mode === "challenge") {
+				if (result.name === "letter-b") {
+					console.log("The items are the same!");
+
+					if (this.#winCounter % 20 === 0) {
+						const timesTwo = this.#winCounter * 2;
+						const timesTwoMinusForty = timesTwo - 40;
+
+						document
+							.getElementById("blocker")
+							?.classList.add(`bg-gradient-${timesTwo}`);
+
+						document
+							.getElementById("blocker")
+							?.classList.remove(
+								`bg-gradient-${timesTwoMinusForty}`
+							);
+					}
+
+					this.#winCounter += 1;
+
+					if (this.#winCounter >= 40) {
+						// this.#getRandomItem(Object.keys(this.#gestureStrings));
+						this.#winCounter = 40;
+					}
+				} else {
+					console.log("The items are different!");
+					this.#loseCounter += 1;
+
+					if (this.#loseCounter === 180) {
+						// this.#getRandomItem(Object.keys(this.#gestureStrings));
+						this.#loseCounter = 0;
+					}
+				}
+
+				return;
+			}
+
 			if (!Number.isNaN(Number(result.name))) {
 				if (hand.handedness === "Left") {
 					this.#addToContainer(result, this.#containerEl!);
@@ -126,8 +171,24 @@ export default class HandGestureService {
 		return this.#detector!.estimateHands(video);
 	}
 
+	#getRandomItem(gestureStrings: string[]) {
+		this.#randomItem =
+			gestureStrings[Math.floor(Math.random() * gestureStrings.length)];
+
+		this.#addToContainer(
+			{
+				name: this.#randomItem,
+			},
+			this.#containerEl!
+		);
+	}
+
 	async initializeDetector() {
 		if (this.#detector) return this.#detector;
+
+		if (this.#mode === "challenge") {
+			this.#getRandomItem(Object.keys(this.#gestureStrings));
+		}
 
 		const detectorConfig: handPoseDetection.MediaPipeHandsMediaPipeModelConfig =
 			{
