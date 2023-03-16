@@ -1,4 +1,4 @@
-import { Check } from "react-feather";
+import Checked from "../../components/Checked";
 import { handGestureFactory } from "../../factories/handGestureFactory";
 import {
 	letterKnownGestures,
@@ -23,16 +23,12 @@ const Letter = () => {
 				Faça o gesto correspondente à letra que aparecer na tela.
 			</p>
 
-			<div className="relative border-2 border-black rounded-lg p-16 mb-12">
+			<div className="grid relative border-2 border-black rounded-lg p-16 mb-12">
 				<span className="text-8xl font-bold" id="letter-container">
 					*
 				</span>
 
-				<Check className="absolute top-2 right-2 w-10 h-10 bg-green-400 text-white rounded-full p-2" />
-				<span
-					className="absolute top-2 right-2 w-10 h-10 rounded-full p-2 bg-gradient-0"
-					id="blocker"
-				></span>
+				<Checked />
 			</div>
 		</div>
 	);

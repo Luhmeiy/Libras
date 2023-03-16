@@ -1,0 +1,26 @@
+@property --angle {
+	inherits: false;
+	initial-value: 0deg;
+	syntax: "<angle>";
+}
+
+.conic {
+	background-image: conic-gradient(
+		transparent var(--angle),
+		white var(--angle)
+	);
+
+	&.active {
+		animation: conic-gradient 4.5s forwards;
+	}
+}
+
+@keyframes conic-gradient {
+	0% {
+		--angle: 0deg;
+	}
+
+	100% {
+		--angle: 360deg;
+	}
+}

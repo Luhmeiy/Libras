@@ -38,8 +38,8 @@ export default class HandGestureService {
 	#isFirst = true;
 	#previousGesture = "";
 	#randomItem = "";
-	#winCounter = 0;
-	#loseCounter = 0;
+	#isAnimationStarted = false;
+	#setTimeoutId: number | null = null;
 	#containerEl =
 		document.getElementById("letter-container") ||
 		document.getElementById("first-number-container");
@@ -110,37 +110,52 @@ export default class HandGestureService {
 			].reduce((previous: any, current: any) => {});
 
 			if (this.#mode === "challenge") {
-				if (result.name === "letter-b") {
-					console.log("The items are the same!");
-
-					if (this.#winCounter % 20 === 0) {
-						const timesTwo = this.#winCounter * 2;
-						const timesTwoMinusForty = timesTwo - 40;
+				if (result.name === this.#randomItem) {
+					if (!this.#isAnimationStarted) {
+						console.log("The items are the same!");
 
 						document
 							.getElementById("blocker")
-							?.classList.add(`bg-gradient-${timesTwo}`);
+							?.classList.add("active");
 
-						document
-							.getElementById("blocker")
-							?.classList.remove(
-								`bg-gradient-${timesTwoMinusForty}`
-							);
-					}
+						this.#setTimeoutId = setTimeout(() => {
+							this.#containerEl!.classList.add("hidden");
 
-					this.#winCounter += 1;
+							document
+								.getElementById("blocker")
+								?.classList.remove("active");
 
-					if (this.#winCounter >= 40) {
-						// this.#getRandomItem(Object.keys(this.#gestureStrings));
-						this.#winCounter = 40;
+							document
+								.getElementById("spinner")
+								?.classList.add("active");
+
+							setTimeout(() => {
+								this.#getRandomItem(
+									Object.keys(this.#gestureStrings)
+								);
+
+								this.#containerEl!.classList.remove("hidden");
+
+								this.#isAnimationStarted = false;
+
+								document
+									.getElementById("spinner")
+									?.classList.remove("active");
+							}, 1500);
+						}, 4500);
+
+						this.#isAnimationStarted = true;
 					}
 				} else {
 					console.log("The items are different!");
-					this.#loseCounter += 1;
 
-					if (this.#loseCounter === 180) {
-						// this.#getRandomItem(Object.keys(this.#gestureStrings));
-						this.#loseCounter = 0;
+					document
+						.getElementById("blocker")
+						?.classList.remove("active");
+
+					if (this.#isAnimationStarted) {
+						clearTimeout(this.#setTimeoutId!);
+						this.#isAnimationStarted = false;
 					}
 				}
 
