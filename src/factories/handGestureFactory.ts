@@ -17,7 +17,7 @@ interface HandGestureFactoryProps {
 	gestureStrings: {
 		[index: string]: string;
 	};
-	mode: string;
+	mode: "challenge" | "converter";
 }
 
 export const handGestureFactory = {
