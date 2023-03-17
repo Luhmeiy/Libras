@@ -9,8 +9,6 @@
 
 .loading-spinner {
 	animation: spinner 1.5s linear infinite;
-	border: 10px solid #f3f3f3;
-	border-top: 10px solid #383636;
 	opacity: 0;
 
 	&.active {

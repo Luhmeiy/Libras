@@ -16,7 +16,6 @@ const letterG = new GestureDescription("letter-g"); // G
 const letterH = new GestureDescription("letter-h"); // H
 const letterI = new GestureDescription("letter-i"); // I
 const letterJ = new GestureDescription("letter-j"); // J
-const letterK = new GestureDescription("letter-k"); // K
 const letterL = new GestureDescription("letter-l"); // L
 const letterM = new GestureDescription("letter-m"); // M
 const letterN = new GestureDescription("letter-n"); // N
@@ -167,19 +166,6 @@ for (let finger of [Finger.Index, Finger.Middle, Finger.Ring]) {
 
 // K
 // -----------------------------------------------------------------------------
-// Precisa ser atualizado
-
-// for (let finger of [Finger.Thumb, Finger.Index, Finger.Middle]) {
-// 	letterK.addCurl(finger, FingerCurl.NoCurl, 1.0);
-// 	letterK.addDirection(finger, FingerDirection.HorizontalLeft, 0.9);
-// 	letterK.addDirection(finger, FingerDirection.HorizontalRight, 0.9);
-// 	letterK.addDirection(finger, FingerDirection.DiagonalDownLeft, 0.9);
-// 	letterK.addDirection(finger, FingerDirection.DiagonalDownRight, 0.9);
-// }
-
-// for (let finger of [Finger.Ring, Finger.Pinky]) {
-// 	letterK.addCurl(finger, FingerCurl.FullCurl, 1.0);
-// }
 
 // L
 // -----------------------------------------------------------------------------
@@ -410,7 +396,6 @@ const letterKnownGestures = [
 	letterH,
 	letterI,
 	letterJ,
-	letterK,
 	letterL,
 	letterM,
 	letterN,
@@ -438,7 +423,6 @@ const letterGestureStrings = {
 	"letter-h": "H",
 	"letter-i": "I",
 	"letter-j": "J",
-	"letter-k": "K",
 	"letter-l": "L",
 	"letter-m": "M",
 	"letter-n": "N",

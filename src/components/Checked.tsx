@@ -11,7 +11,7 @@ const Checked = () => {
 				id="blocker"
 			></span>
 			<span
-				className="absolute justify-self-center self-center w-12 h-12 rounded-full loading-spinner"
+				className="absolute justify-self-center self-center w-12 h-12 rounded-full border-8 border-gray-100 border-t-gray-800 loading-spinner"
 				id="spinner"
 			></span>
 		</>

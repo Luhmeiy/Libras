@@ -112,7 +112,7 @@ export default class HandGestureService {
 			if (this.#mode === "challenge") {
 				if (result.name === this.#randomItem) {
 					if (!this.#isAnimationStarted) {
-						console.log("The items are the same!");
+						// console.log("The items are the same!");
 
 						document
 							.getElementById("blocker")
@@ -147,7 +147,7 @@ export default class HandGestureService {
 						this.#isAnimationStarted = true;
 					}
 				} else {
-					console.log("The items are different!");
+					// console.log("The items are different!");
 
 					document
 						.getElementById("blocker")
