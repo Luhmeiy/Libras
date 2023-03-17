@@ -10,7 +10,12 @@ import HandGestureView from "../views/handGestureView";
 import { fingerLookupIndexes } from "../util/fingerLookupIndexes";
 
 import Camera from "../lib/camera";
-const camera = await Camera.init();
+
+let camera: Camera;
+
+(async function () {
+	camera = await Camera.init();
+})();
 
 interface HandGestureFactoryProps {
 	knownGestures: any[];
