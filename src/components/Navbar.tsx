@@ -1,13 +1,17 @@
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 import { NavLink } from "react-router-dom";
-import { ChevronDown } from "react-feather";
+import { CaretDown, List, X } from "phosphor-react";
+import { AnimatePresence, motion } from "framer-motion";
+import { useState } from "react";
 
 const Navbar = () => {
+	const [toggle, setToggle] = useState(false);
+
 	return (
-		<div className="w-full fixed flex justify-between items-center px-16 py-6">
+		<div className="w-full fixed flex justify-between items-center px-16 py-6 max-sm:px-4 max-sm:py-4">
 			<div className="text-3xl font-bold">Conversor de Libras</div>
 
-			<div className="flex gap-10 text-md">
+			<div className="flex gap-10 text-md max-lg:hidden">
 				<NavLink
 					to="/"
 					className={({ isActive }: { isActive: boolean }) =>
@@ -37,8 +41,8 @@ const Navbar = () => {
 
 				<DropdownMenu.Root>
 					<DropdownMenu.Trigger>
-						<span className="flex items-center gap-2">
-							Conversores <ChevronDown className="w-4 h-4" />
+						<span className="flex items-center gap-1">
+							Conversores <CaretDown size={18} />
 						</span>
 					</DropdownMenu.Trigger>
 
@@ -99,6 +103,132 @@ const Navbar = () => {
 						</DropdownMenu.Content>
 					</DropdownMenu.Portal>
 				</DropdownMenu.Root>
+			</div>
+
+			<div className="flex lg:hidden">
+				<List
+					onClick={() => setToggle(true)}
+					size={24}
+					className="cursor-pointer"
+				/>
+
+				<AnimatePresence>
+					{toggle && (
+						<motion.div
+							initial={{ right: -208 }}
+							animate={{ right: 0 }}
+							exit={{ right: -208 }}
+							transition={{
+								duration: 0.5,
+								ease: "easeInOut",
+							}}
+							className="w-52 h-full flex flex-col items-end gap-4 text-md bg-white fixed z-20 px-6 py-6 inset-r-0 inset-y-0 shadow-[0_0_20px_rgba(168,168,168,.25)]"
+						>
+							<NavLink
+								to="/"
+								className={({
+									isActive,
+								}: {
+									isActive: boolean;
+								}) =>
+									isActive
+										? "font-bold mt-5"
+										: "hover:font-semibold mt-5"
+								}
+							>
+								Letras
+							</NavLink>
+
+							<NavLink
+								to="/number"
+								className={({
+									isActive,
+								}: {
+									isActive: boolean;
+								}) =>
+									isActive
+										? "font-bold"
+										: "hover:font-semibold"
+								}
+							>
+								Números
+							</NavLink>
+
+							<NavLink
+								to="/word"
+								className={({
+									isActive,
+								}: {
+									isActive: boolean;
+								}) =>
+									isActive
+										? "font-bold"
+										: "hover:font-semibold"
+								}
+							>
+								Palavras/Frases
+							</NavLink>
+
+							<hr className="w-full border-none h-px bg-gray-200" />
+
+							<span className="font-bold">Conversores</span>
+
+							<NavLink
+								to="/converter/letter"
+								className={({
+									isActive,
+								}: {
+									isActive: boolean;
+								}) =>
+									isActive
+										? "font-bold"
+										: "hover:font-semibold"
+								}
+							>
+								Letras
+							</NavLink>
+
+							<NavLink
+								to="/converter/number"
+								className={({
+									isActive,
+								}: {
+									isActive: boolean;
+								}) =>
+									isActive
+										? "font-bold"
+										: "hover:font-semibold"
+								}
+							>
+								Números
+							</NavLink>
+
+							<NavLink
+								to="/converter/word"
+								className={({
+									isActive,
+								}: {
+									isActive: boolean;
+								}) =>
+									isActive
+										? "font-bold"
+										: "hover:font-semibold"
+								}
+							>
+								Palavras/Frases
+							</NavLink>
+
+							<X
+								onClick={() => {
+									setToggle(false);
+								}}
+								size={22}
+								weight={"bold"}
+								className="absolute self-start cursor-pointer text-gray-400 transition-colors duration-1000 hover:text-gray-600"
+							/>
+						</motion.div>
+					)}
+				</AnimatePresence>
 			</div>
 		</div>
 	);

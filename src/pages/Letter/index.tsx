@@ -6,13 +6,13 @@ import {
 } from "../../util/letterGestures.js";
 
 const Letter = () => {
-	setTimeout(() => {
-		handGestureFactory.initialize({
-			knownGestures: letterKnownGestures,
-			gestureStrings: letterGestureStrings,
-			mode: "challenge",
-		});
-	}, 500);
+	// setTimeout(() => {
+	// 	handGestureFactory.initialize({
+	// 		knownGestures: letterKnownGestures,
+	// 		gestureStrings: letterGestureStrings,
+	// 		mode: "challenge",
+	// 	});
+	// }, 500);
 
 	return (
 		<div className="w-screen h-screen flex flex-col justify-center items-center">
