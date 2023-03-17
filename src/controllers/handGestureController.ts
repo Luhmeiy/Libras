@@ -2,7 +2,7 @@ import { Hand } from "@tensorflow-models/hand-pose-detection";
 
 interface ViewProps {
 	clearCanvas(): void;
-	drawResults(hands: []): void;
+	drawResults(hands: Hand[]): void;
 	loop(fn: () => void): void;
 }
 
