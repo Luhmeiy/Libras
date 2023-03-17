@@ -5,15 +5,13 @@ import {
 } from "../../util/letterGestures.js";
 
 const LetterConverter = () => {
-	setTimeout(
-		() =>
-			handGestureFactory.initialize({
-				knownGestures: letterKnownGestures,
-				gestureStrings: letterGestureStrings,
-				mode: "converter",
-			}),
-		500
-	);
+	setTimeout(() => {
+		handGestureFactory.initialize({
+			knownGestures: letterKnownGestures,
+			gestureStrings: letterGestureStrings,
+			mode: "converter",
+		});
+	}, 500);
 
 	return (
 		<div className="w-screen h-screen flex flex-col justify-center items-center">
