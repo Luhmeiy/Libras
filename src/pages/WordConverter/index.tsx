@@ -14,7 +14,7 @@ const WordConverter = () => {
 	}, 500);
 
 	return (
-		<div className="w-screen h-screen flex flex-col justify-center items-center">
+		<div className="w-screen h-screen flex flex-col justify-center items-center text-center px-4">
 			<h1 className="text-4xl font-bold mb-2">
 				Conversor de Libras para Palavras/Frases
 			</h1>

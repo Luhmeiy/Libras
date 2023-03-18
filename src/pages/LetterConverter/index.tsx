@@ -14,7 +14,7 @@ const LetterConverter = () => {
 	}, 500);
 
 	return (
-		<div className="w-screen h-screen flex flex-col justify-center items-center">
+		<div className="w-screen h-screen flex flex-col justify-center items-center text-center px-4">
 			<h1 className="text-4xl font-bold mb-2">
 				Conversor de Libras para Letras
 			</h1>
@@ -22,7 +22,7 @@ const LetterConverter = () => {
 				Faça um gesto e o programa reconhecerá qual letra é! <b>*</b>
 			</p>
 
-			<div className="border-2 border-black rounded-lg p-12 mb-12">
+			<div className="border-2 border-black rounded-lg p-12 m-12">
 				<span className="text-8xl font-bold" id="letter-container">
 					*
 				</span>

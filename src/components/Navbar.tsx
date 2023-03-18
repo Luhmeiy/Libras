@@ -105,7 +105,7 @@ const Navbar = () => {
 				</DropdownMenu.Root>
 			</div>
 
-			<div className="flex lg:hidden">
+			<div className="flex relative justify-center items-center lg:hidden">
 				<List
 					onClick={() => setToggle(true)}
 					size={24}
@@ -122,7 +122,7 @@ const Navbar = () => {
 								duration: 0.5,
 								ease: "easeInOut",
 							}}
-							className="w-52 h-full flex flex-col items-end gap-4 text-md bg-white fixed z-20 px-6 py-6 inset-r-0 inset-y-0 shadow-[0_0_20px_rgba(168,168,168,.25)]"
+							className="w-52 h-screen fixed flex flex-col items-end gap-3 bg-white text-md p-6 right-0 inset-y-0 shadow-[0_0_20px_rgba(168,168,168,.25)]"
 						>
 							<NavLink
 								to="/"

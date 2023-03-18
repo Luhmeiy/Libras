@@ -15,7 +15,7 @@ const Letter = () => {
 	}, 500);
 
 	return (
-		<div className="w-screen h-screen flex flex-col justify-center items-center">
+		<div className="w-screen h-screen flex flex-col justify-center items-center text-center px-4">
 			<h1 className="text-4xl font-bold mb-2">
 				Teste seus conhecimentos de números de Libras!
 			</h1>
@@ -23,7 +23,7 @@ const Letter = () => {
 				Faça o gesto correspondente ao número que aparecer na tela.
 			</p>
 
-			<div className="grid relative border-2 border-black rounded-lg p-12 mb-12">
+			<div className="grid relative border-2 border-black rounded-lg p-12 -z-10">
 				<span className="text-8xl font-bold" id="letter-container">
 					*
 				</span>

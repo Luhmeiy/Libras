@@ -24,7 +24,6 @@
     "postcss": "^8.4.21",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-feather": "^2.0.10",
     "react-router-dom": "^6.8.2",
     "sass": "^1.58.3"
   },
