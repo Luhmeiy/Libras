@@ -22,13 +22,13 @@ const LetterConverter = () => {
 				Faça um gesto e o programa reconhecerá qual letra é! <b>*</b>
 			</p>
 
-			<div className="border-2 border-black rounded-lg p-12 m-12">
+			<div className="border-2 border-black rounded-lg p-12 mb-12">
 				<span className="text-8xl font-bold" id="letter-container">
 					*
 				</span>
 			</div>
 
-			<span className="text-gray-500 w-96 text-md">
+			<span className="text-gray-500 max-w-sm text-md">
 				<b>*</b> Ainda não há suporte para movimento. Sendo assim, as
 				letras h, j, k, x e z não foram adicionadas ou foram adicionadas
 				apenas de forma estática.
