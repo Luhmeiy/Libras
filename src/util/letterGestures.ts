@@ -35,10 +35,11 @@ const letterY = new GestureDescription("letter-y"); // Y
 // -----------------------------------------------------------------------------
 
 letterA.addCurl(Finger.Thumb, FingerCurl.NoCurl, 0.9);
+letterA.addDirection(Finger.Thumb, FingerDirection.DiagonalUpLeft, 0.8);
+letterA.addDirection(Finger.Thumb, FingerDirection.DiagonalUpRight, 0.8);
 
 for (let finger of [Finger.Index, Finger.Middle, Finger.Ring, Finger.Pinky]) {
 	letterA.addCurl(finger, FingerCurl.FullCurl, 1.0);
-	letterA.addDirection(finger, FingerDirection.VerticalUp, 0.8);
 }
 
 // B
@@ -75,7 +76,6 @@ letterD.addDirection(Finger.Index, FingerDirection.VerticalUp, 0.9);
 
 for (let finger of [Finger.Middle, Finger.Ring, Finger.Pinky]) {
 	letterD.addCurl(finger, FingerCurl.HalfCurl, 0.9);
-	letterD.addCurl(finger, FingerCurl.FullCurl, 0.5);
 }
 
 // E
@@ -264,8 +264,7 @@ for (let finger of [Finger.Middle, Finger.Ring, Finger.Pinky]) {
 // -----------------------------------------------------------------------------
 
 letterR.addCurl(Finger.Index, FingerCurl.NoCurl, 1.0);
-letterR.addDirection(Finger.Index, FingerDirection.DiagonalUpLeft, 0.9);
-letterR.addDirection(Finger.Index, FingerDirection.DiagonalUpRight, 0.9);
+letterR.addDirection(Finger.Index, FingerDirection.VerticalUp, 0.7);
 
 for (let finger of [Finger.Thumb, Finger.Middle]) {
 	letterR.addCurl(finger, FingerCurl.NoCurl, 1.0);
