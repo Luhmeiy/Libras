@@ -82,12 +82,17 @@ export default class HandGestureService {
 			return;
 		}
 
-		if (result.name != this.#previousGesture) {
+		if (
+			result.name != this.#previousGesture &&
+			Number.isNaN(Number(this.#gestureStrings[result.name]))
+		) {
 			// console.log("detected", this.#gestureStrings[result.name]);
 
 			container.innerText = this.#gestureStrings[result.name];
 
 			this.#previousGesture = result.name;
+		} else {
+			container.innerText = this.#gestureStrings[result.name];
 		}
 	}
 
@@ -162,7 +167,7 @@ export default class HandGestureService {
 				return;
 			}
 
-			if (!Number.isNaN(Number(result.name))) {
+			if (!Number.isNaN(Number(this.#gestureStrings[result.name]))) {
 				if (hand.handedness === "Left") {
 					this.#addToContainer(result, this.#containerEl!);
 				} else if (hand.handedness === "Right") {

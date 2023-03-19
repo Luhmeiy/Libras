@@ -53,8 +53,6 @@ numberTwo.addDirection(Finger.Index, FingerDirection.HorizontalRight, 1);
 
 for (let finger of [Finger.Middle, Finger.Ring, Finger.Pinky]) {
 	numberTwo.addCurl(finger, FingerCurl.FullCurl, 1);
-	numberTwo.addDirection(finger, FingerDirection.HorizontalLeft, 0.9);
-	numberTwo.addDirection(finger, FingerDirection.HorizontalRight, 0.9);
 }
 
 // 3
@@ -75,6 +73,9 @@ for (let finger of [Finger.Index, Finger.Middle, Finger.Ring]) {
 
 // 4
 // -----------------------------------------------------------------------------
+
+numberFour.addCurl(Finger.Thumb, FingerCurl.FullCurl, 1);
+numberFour.addCurl(Finger.Thumb, FingerCurl.HalfCurl, 0.8);
 
 for (let finger of [Finger.Index, Finger.Middle, Finger.Ring, Finger.Pinky]) {
 	numberFour.addCurl(finger, FingerCurl.NoCurl, 1);
