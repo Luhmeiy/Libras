@@ -1,6 +1,5 @@
 import "@tensorflow/tfjs-core";
 import "@tensorflow/tfjs-backend-webgl";
-import "@tensorflow/tfjs-converter";
 // @ts-ignore
 import * as fp from "fingerpose";
 

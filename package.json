@@ -9,11 +9,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@mediapipe/hands": "^0.4.1646424915",
+    "@mediapipe/hands": "0.4.1646424915",
     "@radix-ui/react-dropdown-menu": "^2.0.4",
     "@tensorflow-models/hand-pose-detection": "^2.0.0",
     "@tensorflow/tfjs-backend-webgl": "^3.7.0",
-    "@tensorflow/tfjs-converter": "^4.2.0",
+    "@tensorflow/tfjs-converter": "^4.3.0",
     "@tensorflow/tfjs-core": "^4.2.0",
     "@types/lodash": "^4.14.191",
     "autoprefixer": "^10.4.13",

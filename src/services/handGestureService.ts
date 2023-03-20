@@ -1,5 +1,4 @@
 import * as handPoseDetection from "@tensorflow-models/hand-pose-detection";
-import { HandDetector } from "@tensorflow-models/hand-pose-detection";
 import { PixelInput } from "@tensorflow-models/hand-pose-detection/dist/shared/calculators/interfaces/common_interfaces";
 import * as _ from "lodash";
 
@@ -32,7 +31,7 @@ interface HandGestureServiceProps {
 
 export default class HandGestureService {
 	#gestureEstimator;
-	#detector: HandDetector | null = null;
+	#detector: handPoseDetection.HandDetector | null = null;
 	#gestureStrings;
 	#mode;
 	#isFirst = true;
